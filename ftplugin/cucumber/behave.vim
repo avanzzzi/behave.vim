@@ -11,7 +11,7 @@
 "
 
 " Only do this when not done yet for this buffer
-if exists("b:did_ftplugin")
+if exists('b:did_ftplugin')
     finish
 endif
 let b:did_ftplugin = 1
@@ -22,7 +22,7 @@ set cpo&vim
 
 " :help undo_ftplugin
 " What should be stored depends on what will be changed in the ftplugin.
-let b:undo_ftplugin = "setl com< cms< fo<"
+let b:undo_ftplugin = 'setl com< cms< fo<'
 
 """"""""""""""""""""
 " Add commands here

@@ -14,10 +14,12 @@
 
 function! s:GoToStepDefinition()
     normal! ^wv$"sy
-    let l:grep_str = substitute(@s, '"[a-zA-Z0-9]*"', '".*"', 'g')
+    let l:grep_str = substitute(@s, '"[a-zA-Z0-9.]*"', '".*"', 'g')
     let l:grep_str = substitute(l:grep_str, '\n\+$', '', '')
     silent execute 'vimgrep /' . l:grep_str . '/j ' . expand('%:p:h') . '/**/*.py'
-    copen
+    if ! empty(getqflist())
+        copen
+    endif
 endfunction
 
 function! behave#GoToStepDefinition()

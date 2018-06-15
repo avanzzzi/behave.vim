@@ -17,7 +17,7 @@ set cpo&vim
 let b:undo_ftplugin = 'setl com< cms< fo<'
 
 " Loads mapping for gherkin files.
-nnoremap <buffer> <localleader>d :call behave#goto_step_definition()<cr>
+nnoremap <buffer> <localleader>b :call behave#goto_step_definition()<cr>
 
 " Restore 'cpoptions'
 let &cpo = s:cpo_save

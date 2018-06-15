@@ -9,6 +9,9 @@ function! s:goto_step_definition() abort
     let l:grep_str = substitute(@s, '"[a-zA-Z0-9.]*"', '".*"', 'g')
     let l:grep_str = substitute(l:grep_str, '\n\+$', '', '')
 
+    " include keywords in vimgrep search so only the definitions are found
+    let l:grep_str = '@.*(\ *\(''\|"\)' . l:grep_str . '\(''\|"\)\ *)'
+
     " vimgrep the pattern in python files
     silent execute 'vimgrep /' . l:grep_str . '/j ' . expand('%:p:h') . '/**/*.py'
 
@@ -17,6 +20,10 @@ function! s:goto_step_definition() abort
         copen
     endif
 endfunction
+
+"
+" Populate the quickfix window with gherkin usages of a step implementation.
+"
 
 "
 " Expose autoloadable functions.

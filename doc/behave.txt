@@ -1,0 +1,62 @@
+*behave.txt* - Integrate behave development tools into VIM
+    __         __                           _         ~
+   / /_  ___  / /_  ____ __   _____  _   __(_)___ ___ ~
+  / __ \/ _ \/ __ \/ __ `/ | / / _ \| | / / / __ `__ \~
+ / /_/ /  __/ / / / /_/ /| |/ /  __/| |/ / / / / / / /~
+/_.___/\___/_/ /_/\__,_/ |___/\___(_)___/_/_/ /_/ /_/ ~
+
+    Integrate behave development tools into VIM.
+
+==============================================================================
+Contents                                                 *behave.vim-contents*
+
+    1. Usage ...................... |behave.vim-usage|
+    2. Mappings ................... |behave.vim-mappings|
+        2.1. Go to definition ..... |behave.vim-mappings-goto|
+        2.2. Find usages .......... |behave.vim-mappings-find|
+    3. License .................... |behave.vim-license|
+
+==============================================================================
+1. Usage                                                    *behave.vim-usage*
+
+With the default settings, go to definition or find usages can be triggered
+with <leader>b, dependeding on the filetype of the current buffer.
+
+When on a gherkin file (.feature) buffer, go to definition will find the
+definition of the step under the cursor and populate the quickfix window.
+
+When on a python file, find usages will search for all usages of the current
+step implementation in gherkin files and populate the quickfix window.
+
+In both cases, the quickfix window will open when there are results, otherwise
+it will remain closed.
+
+==============================================================================
+2. Mappings                                              *behave.vim-mappings*
+
+behave.vim defines only one mapping: <leader>b
+
+------------------------------------------------------------------------------
+2.1. Go to definition                               *behave.vim-mappings-goto*
+
+Will be triggered while the cursor is on a line with a behave step text.
+    ...
+    Given I say the words "Luke, I am your father" <-- cursor somewhere in this
+        line.
+
+    <leader>b will show one or more step implementations that contains this
+    text.
+
+------------------------------------------------------------------------------
+2.2. Find usages                                    *behave.vim-mappings-find*
+
+Will be triggered while the cursor is on a line with a behave step aannotation.
+    ....
+    @step("Given a say the words "{words}") <-- cursos somewhere in this line.
+
+    <leader>b will show all gherkin files that uses this step implementations.
+
+==============================================================================
+3. License                                                *behave.vim-license*
+
+behave.vim is licensed with the MIT license.

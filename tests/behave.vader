@@ -3,7 +3,7 @@
 # Opens example feature file, puts the cursor on a line containing a step and
 # jump to step implementation.
 Execute (Jump from gherkin to step impl):
-  e fixtures/test.feature
+  e tests/fixtures/test.feature
   3
   call behave#goto_step_definition()
 
@@ -13,7 +13,7 @@ Then (Quickfix window contains the step impl location):
 # Opens example step implementation file, puts the cursor on a line containing
 # a step and find usages in gherkin files.
 Execute (Jump from step impl to gherkin):
-  e fixtures/steps/steps.py
+  e tests/fixtures/steps/steps.py
   4
   call behave#find_usages()
 

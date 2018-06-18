@@ -6,4 +6,4 @@ set rtp^=~/.vim/bundle/vader.vim
 set rtp+=~/.vim/bundle/behave.vim
 filetype plugin indent on
 syntax enable
-VIMRC) -c 'Vader! *.vader' > /dev/null 
+VIMRC) -c 'Vader! tests/*.vader' > /dev/null 

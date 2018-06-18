@@ -2,6 +2,8 @@ dist: trusty
 sudo: false
 
 language: python
+python:
+    - "3.6"
 
 install:
     - "pip install vim-vint"
@@ -10,8 +12,9 @@ before_script:
     - "git clone https://github.com/junegunn/vader.vim.git"
 
 script:
-    - vint .
-    - cd tests && |
+    - vint behave.vim
+    - |
+      cd tests &&
       vim -Nu <(cat << VIMRC
       filetype off
       set rtp+=vader.vim

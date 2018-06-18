@@ -1,0 +1,21 @@
+# Unit testing using Vader: https://github.com/junegunn/vader.vim
+
+# Opens example feature file, puts the cursor on a line containing a step and
+# jump to step implementation.
+Execute (Jump from gherkin to step impl):
+  e fixtures/test.feature
+  3
+  call behave#goto_step_definition()
+
+Then (Quickfix window contains the step impl location):
+  AssertEqual "@given('I am using \"{prg}\"')", getqflist()[0]['text']
+
+# Opens example step implementation file, puts the cursor on a line containing
+# a step and find usages in gherkin files.
+Execute (Jump from step impl to gherkin):
+  e fixtures/steps/steps.py
+  4
+  call behave#find_usages()
+
+Then (Quickfix window contains the gherkin refs):
+  AssertEqual "    Given I am using \"emacs\"", getqflist()[0]['text']

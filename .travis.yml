@@ -1,25 +1,29 @@
 dist: trusty
 sudo: false
 
+stages:
+  - test
+  - lint
+
 language: python
 python: "3.6"
 
-matrix:
-    include:
-        - linter:
-            install:
-                - "pip install vim-vint"
-            script:
-                - "vint ."
-        - tests:
-            before_script:
-                - "git clone https://github.com/junegunn/vader.vim.git"
-            script:
-                - |
-                  vim -Nu <(cat << VIMRC
-                  filetype off
-                  set rtp+=vader.vim
-                  set rtp+=.
-                  filetype plugin indent on
-                  syntax enable
-                  VIMRC) -c 'Vader! tests/behave.vader' > /dev/null
+jobs:
+  include:
+    - stage: lint
+      install:
+        - "pip install vim-vint"
+      script:
+        - "vint ."
+    - stage: test
+      before_script:
+        - "git clone https://github.com/junegunn/vader.vim.git"
+      script:
+        - |
+          vim -Nu <(cat << VIMRC
+          filetype off
+          set rtp+=vader.vim
+          set rtp+=.
+          filetype plugin indent on
+          syntax enable
+          VIMRC) -c 'Vader! tests/behave.vader' > /dev/null

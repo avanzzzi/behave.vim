@@ -2,13 +2,15 @@ sudo: false
 
 language: vim
 
+install:
+    - pip install vim-vint
+
 before_script:
     - git clone https://github.com/junegunn/vader.vim.git
 
 script:
     - vint .
-    - cd tests
-    - |
+    - cd tests && |
       vim -Nu <(cat << VIMRC
       filetype off
       set rtp+=vader.vim

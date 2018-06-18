@@ -1,12 +1,13 @@
+dist: trusty
 sudo: false
 
-language: vim
+language: python
 
 install:
-    - pip install vim-vint
+    - "pip install vim-vint"
 
 before_script:
-    - git clone https://github.com/junegunn/vader.vim.git
+    - "git clone https://github.com/junegunn/vader.vim.git"
 
 script:
     - vint .

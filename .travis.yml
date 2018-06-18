@@ -12,9 +12,9 @@ before_script:
     - "git clone https://github.com/junegunn/vader.vim.git"
 
 script:
-    - vint behave.vim
+    - vint avanzzzi/behave.vim
     - |
-      cd tests &&
+      cd avanzzzi/behave.vim/tests &&
       vim -Nu <(cat << VIMRC
       filetype off
       set rtp+=vader.vim

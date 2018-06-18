@@ -52,7 +52,7 @@ Will be triggered while the cursor is on a line with a behave step text.
 
 Will be triggered while the cursor is on a line with a behave step aannotation.
     ....
-    @step("Given a say the words "{words}") <-- cursos somewhere in this line.
+    @step("Given a say the words "{words}") <-- cursor somewhere in this line.
 
     <leader>b will show all gherkin files that uses this step implementations.
 

@@ -2,8 +2,8 @@ dist: trusty
 sudo: false
 
 stages:
-  - test
   - lint
+  - test
 
 language: python
 python: "3.6"

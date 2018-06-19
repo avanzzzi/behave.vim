@@ -6,8 +6,8 @@ def using_emacs(context, prg):
     pass
 
 
-@step("I am not happy")
-def not_happy(context):
+@step("I am '{perc}' '{mood}'")
+def not_happy(context, perc, mood):
     pass
 
 

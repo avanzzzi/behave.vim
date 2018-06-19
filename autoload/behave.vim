@@ -9,7 +9,7 @@ function! s:goto_step_definition() abort
     let @s = l:reg_contents
 
     " remove variables and newlines
-    let l:grep_str = substitute(l:grep_str, '"[a-zA-Z0-9.]*"', '".*"', 'g')
+    let l:grep_str = substitute(l:grep_str, '\(''[^'']*''\|"[^"]*"\)', '\\(''\\|"\\).*\\(''\\|"\\)', 'g')
     let l:grep_str = substitute(l:grep_str, '\n\+$', '', '')
 
     " include keywords in vimgrep search so only the definitions are found
@@ -39,7 +39,7 @@ function! s:find_usages() abort
     let l:grep_str = substitute(l:grep_str, '\(''\|"\))', '', '')
 
     " remove variables and newlines
-    let l:grep_str = substitute(l:grep_str, '"[a-zA-Z0-9{}]*"', '".*"', 'g')
+    let l:grep_str = substitute(l:grep_str, '\(''[^'']*''\|"[^"]*"\)', '\\(''\\|"\\).*\\(''\\|"\\)', 'g')
     let l:grep_str = substitute(l:grep_str, '\n\+$', '', '')
 
     " vimgrep the pattern in gherkin files

@@ -20,7 +20,7 @@ Contents                                                 *behave.vim-contents*
 1. Usage                                                    *behave.vim-usage*
 
 With the default settings, go to definition or find usages can be triggered
-with <leader>b, dependeding on the filetype of the current buffer.
+with <leader>b, depending on the filetype of the current buffer.
 
 When on a gherkin file (.feature) buffer, go to definition will find the
 definition of the step under the cursor and populate the quickfix window.

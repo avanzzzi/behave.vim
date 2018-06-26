@@ -1,6 +1,6 @@
 "
 " Loads mapping for python files.
-"
+" vint: -ProhibitAbbreviationOption
 
 " Only do this when not done yet for this buffer
 if exists('b:did_ftplugin')

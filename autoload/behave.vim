@@ -5,8 +5,8 @@
 " Get script path, should be here
 let g:actual_path = expand('<sfile>:p:h')
  
-if !exists("g:behave_path")
-    let g:behave_path = ""
+if !exists('g:behave_path')
+    let g:behave_path = ''
 endif
 
 function! s:goto_step_definition() abort
@@ -15,13 +15,13 @@ function! s:goto_step_definition() abort
 		" get feature path
 		let l:actual_feature = expand('%:p')
 		" get script path
-		let l:actual_path = g:actual_path . "/behave.py"
+		let l:actual_path = g:actual_path . '/behave.py'
 
 		" comand
-		let l:command = "echo \"get_step_definition(\\\"". l:actual_feature . "\\\", \\\"" . l:line . "\\\")\" | cat " . l:actual_path . " - | python -"
+		let l:command = 'echo "get_step_definition(\\"'. l:actual_feature . '\\", \\"' . l:line . '\\")" | cat ' . l:actual_path . ' - | python -'
 
-		if g:behave_path != ""
-			let l:command = "cd " . g:behave_path . ";". l:command
+		if g:behave_path !=? ''
+			let l:command = 'cd ' . g:behave_path . ';'. l:command
 		endif
 
 		" Run command

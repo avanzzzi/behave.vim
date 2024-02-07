@@ -6,9 +6,11 @@ import os
 def get_step_definition(feature, input):
     parsed_input = " ".join(input.lstrip().split(" ")[1:]).lstrip()
     base_path = os.path.dirname(os.path.abspath(feature))
-    steps_paths = [os.path.join(base_path,"steps")]
+    steps_paths = [os.path.join(base_path, "steps")]
 
-    runner_util.exec_file(os.path.join(base_path,"environment.py"))
+    hooks_path = os.path.join(base_path, "environment.py")
+    if os.path.exists(hooks_path):
+        runner_util.exec_file(hooks_path)
     runner_util.load_step_modules(steps_paths)
 
     for step_type in registry.steps.keys():
